@@ -7,9 +7,7 @@
         <title>01_03_Vegetarian_Dinner</title>
     </head>
     <body>
-        <ul id="menu">
-
-        </ul>
+        <ul id="menu"></ul>
         <script>
             const menu = [
                 {
@@ -38,9 +36,9 @@
                 vegetarianOptions.forEach(option => {
                     // Create a list item for a dish in this ul for each element loaded from the vegetarianOptions list/array 
                     let dish = document.createElement("li");
-                    dish.textContent(option.name);
+                    dish.textContent = option.name;
                     menuNode.appendChild(dish);
-                })
+                });
             }
 
             vegetarianMenu(menu);
