@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>01_10_food_truck</title>
+    </head>
+    <body>
+        <!-- Show all the elements of from all arrays without duplicates. -->
+        <ul id="combined-menu"></ul>
+
+        <script>
+            function foodTruckFestival(menus) {
+                // Flatten all arrays into 1 single array.
+                let flatMenus = menus.flat();
+
+                // Same as in Python, a Set is an array without duplicates.
+                let combinedMenu = new Set();
+                flatMenus.forEach(item => combinedMenu.add(item));
+
+                const menuNode = document.querySelector("#combined-menu");
+
+                for(let item of combinedMenu) {
+                    let foodNode = document.createElement("li");
+                    foodNode.innerText = item;
+                    menuNode.append(foodNode);
+                }
+
+            }
+
+            foodTruckFestival([
+                ["Tacos", "Burgers"],
+                ["Pizza"],
+                ["Burgers", "Fries"]
+            ])
+        </script>
+    </body>
+
+</html>
