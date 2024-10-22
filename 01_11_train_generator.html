@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>01_11_train_generator</title>
+    </head>
+    <body>
+
+        <button id="next-stop">Next Stop</button>
+        <p id="station-name"></p>
+
+        <script>
+            // Asynchronous function
+            function* getStop() {
+                yield "Bright Hill";
+                yield "Mayflower";
+                yield "Lentor";
+                yield "Springleaf";
+                yield "Woodlands South";
+                yield "Woodlands";
+            }
+
+            const singaporeTEL = getStop();
+            const nextStopButton = document.querySelector("#next-stop");
+            const stationName = document.querySelector("#station-name");
+
+            nextStopButton.addEventListener("click", () => {
+                let currStop = singaporeTEL.next();
+                if (currStop.value === "Woodlands") {
+                    stationName.innerHTML = `<h1>${currStop.value}</h1> We made it!`
+                    nextStopButton.setAttribute("disabled", true);
+                } else {
+                    stationName.innerHTML = `<h1>${currStop.value}</h1>`
+                }
+            });
+
+        </script>
+        
+    </body>
+
+</html>
